@@ -2,10 +2,9 @@
 [![release](https://img.shields.io/github/release/wkh237/react-native-fetch-blob.svg?style=flat-square)](https://github.com/wkh237/react-native-fetch-blob/releases) [![npm](https://img.shields.io/npm/v/react-native-fetch-blob.svg?style=flat-square)](https://www.npmjs.com/package/react-native-fetch-blob) ![](https://img.shields.io/badge/PR-Welcome-brightgreen.svg?style=flat-square) [![](https://img.shields.io/badge/Wiki-Public-brightgreen.svg?style=flat-square)](https://github.com/wkh237/react-native-fetch-blob/wiki) [![npm](https://img.shields.io/npm/l/react-native-fetch-blob.svg?maxAge=2592000&style=flat-square)]()
 
 
-
 A project committed to make file acess and data transfer easier, efficient for React Native developers.
 
-> The npm package is inside `src` folder, if you're going to install using github repository do not point to here directly
+# [Please visit our Github Page for latest document](https://github.com/wkh237/react-native-fetch-blob)
 
 ## Features
 - Transfer data directly from/to storage without BASE64 bridging
@@ -80,7 +79,7 @@ Optionally, use the following command to add Android permissions to `AndroidMani
 RNFB_ANDROID_PERMISSIONS=true react-native link
 ```
 
-pre 0.29 projects 
+pre 0.29 projects
 
 ```sh
 RNFB_ANDROID_PERMISSIONS=true rnpm link
@@ -155,10 +154,10 @@ To sum up :
 - To send a form data, the `Content-Type` header does not matters. When the body is an `Array` we will set proper content type for you.
 - To send binary data, you have two choices, use BASE64 encoded string or path points to a file contains the body.
  - If the `Content-Type` containing substring`;BASE64` or `application/octet` the given body will be considered as a BASE64 encoded data which will be decoded to binary data as the request body.   
- - Otherwise, if a string starts with `RNFetchBlob-file://` (which can simply done by `RNFetchBlob.wrap(PATH_TO_THE_FILE)`), it will try to find the data from the URI string after `RNFetchBlob-file://` and use it as request body. 
+ - Otherwise, if a string starts with `RNFetchBlob-file://` (which can simply done by `RNFetchBlob.wrap(PATH_TO_THE_FILE)`), it will try to find the data from the URI string after `RNFetchBlob-file://` and use it as request body.
 - To send the body as-is, simply use a `Content-Type` header not containing `;BASE64` or `application/octet`.
 
-> It is Worth to mentioning that the HTTP request uses cache by default, if you're going to disable it simply add a Cache Control header `'Cache-Control' : 'no-store'` 
+> It is Worth to mentioning that the HTTP request uses cache by default, if you're going to disable it simply add a Cache Control header `'Cache-Control' : 'no-store'`
 
 > After 0.9.4, we disabled `Chunked` transfer encoding by default, if you're going to use it, you should explicitly set header `Transfer-Encoding` to `Chunked`.
 
@@ -714,7 +713,7 @@ Here's a [sample app](https://github.com/wkh237/rn-firebase-storage-upload-sampl
 
 **Read Stream Event Overhead**
 
-When reading data via `fs.readStream` the process seems blocking JS thread when file is large, it's because the default buffer size is quite small (4kb) which result in large amount of events triggered in JS thread, try to increase the buffer size (for example 100kb = 102400) and set a larger interval (which is introduced in 0.9.4 default value is 10ms) to limit the frequency. 
+When reading data via `fs.readStream` the process seems blocking JS thread when file is large, it's because the default buffer size is quite small (4kb) which result in large amount of events triggered in JS thread, try to increase the buffer size (for example 100kb = 102400) and set a larger interval (which is introduced in 0.9.4 default value is 10ms) to limit the frequency.
 
 **Reduce RCT Bridge and BASE64 Overhead**
 
